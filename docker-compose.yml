@@ -1,0 +1,15 @@
+web:
+  build: .
+  volumes:
+    - "./app:/src/app"
+  ports:
+    - "3000:3000"
+  links:
+    - "db"
+
+db:
+  image: postgres
+  environment:
+    - POSTGRES_PASSWORD=postgres
+  ports:
+    - "5432:5432"
